@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skycast Weather</title>
+    <meta
+      name="description"
+      content="Skycast Weather dashboard for daily and hourly conditions."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand-group">
+          <div class="brand-mark">☼</div>
+          <div>
+            <p class="eyebrow">Live weather</p>
+            <h1>Skycast</h1>
+          </div>
+        </div>
+
+        <form class="search-bar" id="searchForm" aria-label="Search city">
+          <label class="sr-only" for="cityInput">City</label>
+          <input
+            id="cityInput"
+            type="text"
+            name="city"
+            placeholder="Search city"
+            autocomplete="off"
+          />
+          <button type="submit">Search</button>
+        </form>
+      </header>
+
+      <main class="dashboard" aria-live="polite">
+        <section class="hero panel">
+          <div class="hero-copy">
+            <p class="location-label">Current weather</p>
+            <h2 id="cityName">Seattle</h2>
+            <div class="condition-row">
+              <span id="conditionIcon" class="condition-icon" aria-hidden="true">☀️</span>
+              <span id="conditionText">Clear sky</span>
+            </div>
+          </div>
+
+          <div class="temp-block">
+            <div class="temp-value" id="currentTemp">23°</div>
+            <div class="temp-meta">
+              <span id="feelsLike">Feels like 25°</span>
+              <span id="currentTime">Tue, 3:30 PM</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="stats-grid">
+          <article class="stat panel">
+            <p>Humidity</p>
+            <strong id="humidity">54%</strong>
+          </article>
+          <article class="stat panel">
+            <p>Wind</p>
+            <strong id="wind">14 km/h</strong>
+          </article>
+          <article class="stat panel">
+            <p>Precipitation</p>
+            <strong id="precip">12%</strong>
+          </article>
+          <article class="stat panel">
+            <p>UV Index</p>
+            <strong id="uvIndex">5/10</strong>
+          </article>
+        </section>
+
+        <section class="panel forecast-panel">
+          <div class="section-heading">
+            <h3>Hourly forecast</h3>
+          </div>
+          <div class="hourly-list" id="hourlyForecast"></div>
+        </section>
+
+        <section class="panel weekly-panel">
+          <div class="section-heading">
+            <h3>7-day outlook</h3>
+          </div>
+          <div class="weekly-list" id="weeklyForecast"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
